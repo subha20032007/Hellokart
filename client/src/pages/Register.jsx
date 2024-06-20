@@ -14,6 +14,7 @@ const Register = () => {
     //    axios.post(``)
     toast.success('Register Successfully')
     }
+    //1
   return (
     <Layout>
         <div className='register'>
