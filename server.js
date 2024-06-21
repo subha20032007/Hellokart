@@ -5,14 +5,15 @@ const { connectDB } = require("./config/db")
 const {authRouter}=require("./routes/authRoute")
 const cors=require("cors")
 const app=express()
-
+//config
 dotenv.config()
 connectDB()
 //middlewares
 app.use(cors())
 app.use(express.json())
 app.use(morgan("tiny"))
-//routes
+
+//routes 
 app.use("/api/v1/auth",authRouter)
 
 //rest api

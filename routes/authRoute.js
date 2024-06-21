@@ -6,6 +6,10 @@ const authRouter=express.Router()
 authRouter.post("/register",registerController)
 authRouter.post("/login",loginController)
 authRouter.get("/test",requireSignIn,isAdmin,testController)
+authRouter.get("/user-auth",requireSignIn,(req,res)=>{
+    res.status(200).send({ok:true})
+})
 module.exports={
     authRouter
 }
+//da
