@@ -6,19 +6,19 @@ const registerController=async(req,res)=>{
 try{
 const {name,email,password,phone,address}=req.body
 if(!name){
-    return res.send({error:"Name is Required"})
+    return res.send({message:"Name is Required"})
 }
 if(!email){
-    return res.send({error:"email is Required"})
+    return res.send({message:"email is Required"})
 }
 if(!password){
-    return res.send({error:"password is Required"})
+    return res.send({message:"password is Required"})
 }
 if(!phone){
-    return res.send({error:"phone is Required"})
+    return res.send({message:"phone is Required"})
 }
 if(!address){
-    return res.send({error:"address is Required"})
+    return res.send({message:"address is Required"})
 }
 const existingUser=await userModel.findOne({email})
 if(existingUser){
@@ -51,9 +51,17 @@ res.status(500).send({
 const loginController=async(req,res)=>{
 try{
 const {email,password}=req.body;
+// console.log(email,password)
+if(!email||!password){
+    return res.status(404).send({
+        success:false,
+        message:"invalid Email or password"
+    })
+}
 const user=await userModel.findOne({email})
-if(!user){
-    res.status(200).send({
+
+if(user==null||!user){
+   return res.status(200).send({
         success:false,
         message:"Email not registerd"
     })
@@ -97,3 +105,5 @@ res.send("Protected Route")
 module.exports={
     registerController,loginController,testController
 }
+
+//adsa
