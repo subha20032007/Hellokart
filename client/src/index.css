@@ -1,10 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
   margin:0px;
   padding:0px;
   box-sizing: border-box;
 }
+/* logo */
+.logo{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  margin-left: 30px;
+  margin-top: 6px;
+}
+.logo>h5:nth-child(2){
+  color:white;
+  background-color: black;
+  height: 100%;
+  width:100%;
+  padding: 3%;
+  border: 1px solid black;
 
+}
+.logo>h5:nth-child(1){
+  color:black;
+  background-color: white;
+  height: 100%;
+  width:100%;
+  padding: 3%;
+  border: 1px solid black;
+
+}
 .navbar{
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
@@ -13,7 +38,8 @@
   color:rgb(236, 107, 2);
 font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 50px;
-  box-shadow: rgba(3, 233, 118, 0.35) 0px -50px 36px -28px inset;
+   border-bottom: 1px solid rgb(4, 99, 94);
+
 }
 
 .register{
@@ -35,3 +61,22 @@ width:80%
   color: rgb(255, 255, 255);
   background-color: black;
   }
+  .login{
+    border: 1px solid black;
+    width:30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    align-items: center;
+    padding: 4%;
+    margin-top: 70px;
+  }
+  .login>input{
+    width:80%
+    }
+    .login>button{
+      width:80%;
+      color: rgb(255, 255, 255);
+      background-color: black;
+      }

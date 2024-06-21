@@ -1,20 +1,34 @@
 import React, { useState } from 'react'
 import Layout from '../componets/Layout'
 import { toast } from 'react-toastify';
+import axios from "axios"
 import '../index.css'
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [phone,setPhone]=useState("")
     const [address,setAddress]=useState("")
-
-    const handelSubmit=(e)=>{
+const navigate=useNavigate()
+//console.log(import.meta.env.REACT_APP_API)
+    const handelSubmit=async(e)=>{
         e.preventDefault()
+        try{
+          const res =await axios.post(`${import.meta.env.REACT_APP_API}/api/v1/auth/register`,{name,email,phone,password,address})
+          if(res&&res.data.success){
+            toast.success(res.data.message)
+navigate("/login")
+          }
+        }catch(err){
+  console.log(err)
+  toast.error("something went wrong")
+        }
     //    axios.post(``)
-    toast.success('Register Successfully')
+   // toast.success('Register Successfully')
     }
     //1234567
+    
   return (
     <Layout>
         <div className='register'>
