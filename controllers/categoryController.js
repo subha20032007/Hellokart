@@ -72,7 +72,11 @@ const deleteCategoryController=async(req,res)=>{
     }
 }
 const categoryController=async(req,res)=>{
-    
+    try{
+
+    }catch(err){
+        
+    }
 }
 const singleCategoryController=async(req,res)=>{
 
