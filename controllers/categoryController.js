@@ -76,7 +76,8 @@ const categoryController=async(req,res)=>{
         const category=await categoryModel.find()
         res.status(200).send({
             success:true,
-            message:"Get all data successfully"
+            message:"Get all category successfully",
+            category
         })
     }catch(err){
         console.log(err)
@@ -89,7 +90,12 @@ const categoryController=async(req,res)=>{
 }
 const singleCategoryController=async(req,res)=>{
 try{
-
+    const category=await categoryModel.findOne({slug:req.body.slug})
+    res.status(200).send({
+        success:true,
+        message:"Get single category successfully",
+        category
+    })
     }catch(err){
         console.log(err)
         res.status(500).send({

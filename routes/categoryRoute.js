@@ -7,7 +7,7 @@ categoryRoutes.post("/create-category",requireSignIn,isAdmin,createCategoryContr
 categoryRoutes.put("/update-category/:id",requireSignIn,isAdmin,updateCategoryController)
 categoryRoutes.delete("/delete-category/:id",requireSignIn,isAdmin,deleteCategoryController)
 categoryRoutes.get("/get-category",categoryController)
-categoryRoutes.get("/single-category",singleCategoryController)
+categoryRoutes.get("/single-category/:slug",singleCategoryController)
 module.exports={
     categoryRoutes
 }
