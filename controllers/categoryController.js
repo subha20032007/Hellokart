@@ -73,9 +73,18 @@ const deleteCategoryController=async(req,res)=>{
 }
 const categoryController=async(req,res)=>{
     try{
-
+        const category=await categoryModel.find()
+        res.status(200).send({
+            success:true,
+            message:"Get all data successfully"
+        })
     }catch(err){
-
+        console.log(err)
+        res.status(500).send({
+            success:false,
+            message:"err from delete category",
+            err
+        })
     }
 }
 const singleCategoryController=async(req,res)=>{
