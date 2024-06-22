@@ -1,6 +1,6 @@
 const express=require("express")
 const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware.js")
-const { createCategoryController,updateCategoryController,deleteCategoryController } = require("../controllers/categoryController.js")
+const { createCategoryController,updateCategoryController,deleteCategoryController,categoryController,singleCategoryController } = require("../controllers/categoryController.js")
 const categoryRoutes=express.Router()
 
 categoryRoutes.post("/create-category",requireSignIn,isAdmin,createCategoryController)

@@ -71,10 +71,10 @@ const deleteCategoryController=async(req,res)=>{
         })
     }
 }
-const categoryController=()=>{
+const categoryController=async(req,res)=>{
     
 }
-const singleCategoryController=()=>{
+const singleCategoryController=async(req,res)=>{
 
 }
 module.exports={
