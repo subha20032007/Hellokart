@@ -75,11 +75,15 @@ const categoryController=async(req,res)=>{
     try{
 
     }catch(err){
-        
+
     }
 }
 const singleCategoryController=async(req,res)=>{
+try{
 
+    }catch(err){
+        
+    }
 }
 module.exports={
     createCategoryController,updateCategoryController,deleteCategoryController,categoryController,singleCategoryController
