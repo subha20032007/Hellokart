@@ -1,15 +1,17 @@
 import React from 'react'
-import Layout from '../componets/Layout'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import '../index.css'
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import '../../index.css'
+import { useLocation, useNavigate } from 'react-router-dom';
+import Layout from '../../componets/Layout';
+import { useAuth } from '../../context/AuthContext';
+
 const Login = () => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [auth,setAuth]=useAuth()
+    const location=useLocation()
 const navigate=useNavigate()
 //console.log(import.meta.env.REACT_APP_API)
     const handelSubmit=async(e)=>{
@@ -22,7 +24,11 @@ const navigate=useNavigate()
             toast.success(res.data.message)
             setAuth({...auth,user:res.data.user,token:res.data.token})
          localStorage.setItem("auth",JSON.stringify(res.data))
-navigate("/")
+         //console.log(location)
+         setTimeout(()=>{
+          navigate(location.state||"/")
+         },1000)
+
           }else if(res&&!res.data.success){
             toast.error(res.data.message)
           }
@@ -38,6 +44,7 @@ navigate("/")
             <input required value={email} onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder='Enter Your Email'/>
             <input required value={password} onChange={(e)=>{setPassword(e.target.value)}} type="text" placeholder='Enter Your Password'/>
             <button onClick={handelSubmit}>Submit</button>
+            <p style={{color:"teal",fontWeight:"30px"}} onClick={()=>{navigate("/forget-password")}}>Forget password?</p>
         </div>
     </Layout>
   )

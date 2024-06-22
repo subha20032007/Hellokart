@@ -4,7 +4,7 @@ const jwt=require("jsonwebtoken")
 
 const registerController=async(req,res)=>{
 try{
-const {name,email,password,phone,address}=req.body
+const {name,email,password,phone,address,answer}=req.body
 if(!name){
     return res.send({message:"Name is Required"})
 }
@@ -20,6 +20,9 @@ if(!phone){
 if(!address){
     return res.send({message:"address is Required"})
 }
+if(!answer){
+    return res.send({message:"answer is Required"})
+}
 const existingUser=await userModel.findOne({email})
 if(existingUser){
     return res.status(200).send({
@@ -30,7 +33,7 @@ if(existingUser){
 const hashedPassword=await hashPassword(password)
 console.log(hashedPassword)
 const user=await new userModel({
-    name,email,phone,address,password:hashedPassword
+    name,email,phone,address,password:hashedPassword,answer
 }).save()
 
 res.status(200).send({
@@ -51,7 +54,8 @@ res.status(500).send({
 const loginController=async(req,res)=>{
 try{
 const {email,password}=req.body;
-// console.log(email,password)
+
+
 if(!email||!password){
     return res.status(404).send({
         success:false,
@@ -98,12 +102,50 @@ res.status(500).send({
 })
 }
 }
+//forget password
+const forgotPasswordController=async(req,res)=>{
+try{
+const {newPassword,email,answer}=req.body
+console.log(newPassword,email,answer)
+if(!answer){
+    return res.send({message:"answer is Required"})
+}
+if(!email){
+    return res.send({message:"email is Required"})
+}
+if(!newPassword){
+    return res.send({message:"password is Required"})
+}
+const user=await userModel.findOne({email,answer})
+if(!user){
+    res.status(500).send({
+        success:false,
+        message:"Wrong Email or Answer"
+    }) 
+}
+const hashed=await hashPassword(newPassword)
+await userModel.findByIdAndUpdate(user._id,{password:hashed})
+res.status(200).send({
+    success:true,
+    message:"Password reset Successfull"
+}) 
+
+}catch(err){
+    console.log(err)
+res.status(500).send({
+    success:false,
+    message:"Something went Wrong",
+    err
+})
+}
+    const user=await userModel.find()
+}
 //post login
 const testController=(req,res)=>{
 res.send("Protected Route")
 }
 module.exports={
-    registerController,loginController,testController
+    registerController,loginController,testController,forgotPasswordController
 }
 
 //adsa

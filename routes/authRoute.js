@@ -1,15 +1,16 @@
 const express=require("express")
-const {registerController,loginController, testController}=require("../controllers/authController")
+const {registerController,loginController,forgotPasswordController, testController}=require("../controllers/authController")
 const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware")
-const authRouter=express.Router()
+const authRoutes=express.Router()
 
-authRouter.post("/register",registerController)
-authRouter.post("/login",loginController)
-authRouter.get("/test",requireSignIn,isAdmin,testController)
-authRouter.get("/user-auth",requireSignIn,(req,res)=>{
+authRoutes.post("/register",registerController)
+authRoutes.post("/login",loginController)
+authRoutes.post("/forgot-password",forgotPasswordController)
+authRoutes.get("/test",requireSignIn,isAdmin,testController)
+authRoutes.get("/user-auth",requireSignIn,(req,res)=>{
     res.status(200).send({ok:true})
 })
 module.exports={
-    authRouter
+    authRoutes
 }
 //da
