@@ -90,7 +90,7 @@ const categoryController=async(req,res)=>{
 }
 const singleCategoryController=async(req,res)=>{
 try{
-    const category=await categoryModel.findOne({slug:req.body.slug})
+    const category=await categoryModel.findOne({slug:req.params.slug})
     res.status(200).send({
         success:true,
         message:"Get single category successfully",
