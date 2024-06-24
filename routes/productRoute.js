@@ -9,7 +9,7 @@ productRoutes.get("/get-product",formidable(),getProductsController)
 productRoutes.get("/get-product/:slug",formidable(),getSingleProductsController)
 productRoutes.put("/update-product/:id",requireSignIn,isAdmin,formidable(),updateProductsController)
 productRoutes.delete("/delete-product/:id",requireSignIn,isAdmin,formidable(),deleteProductsController)
-productRoutes.get("/photo-product",formidable(),productPhotoController)
+productRoutes.get("/product-photo",formidable(),productPhotoController)
 module.exports={
     productRoutes
 }

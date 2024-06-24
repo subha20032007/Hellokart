@@ -144,7 +144,7 @@ const deleteProductsController=async(req,res)=>{
 const productPhotoController=async(req,res)=>{
     try{
         const {id}=req.params
-        const products=await productModel.findByIdAndUpdate({id}).select("photo")
+        const product=await productModel.findById({_id:id}).select("photo")
         
     if(product.photo.data){
         res.set("Content-type",product.photo.contentType)
