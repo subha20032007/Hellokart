@@ -4,7 +4,7 @@ import { Navigate, useLocation,useNavigate } from 'react-router-dom'
 
 
 
-const PrivetRoute = ({children}) => {
+const PrivateRoute = ({children}) => {
     const [auth,isAuth]=useAuth()
     const location=useLocation()
 
@@ -15,7 +15,7 @@ return auth.token!==""?<>{children}</>:<Navigate state={location.pathname} to="/
 }
 
 
-export default PrivetRoute
+export default PrivateRoute
 //const [ok,setOk]=useState(false)
 //const navigate=useNavigate()
 // const location=useLocation()
