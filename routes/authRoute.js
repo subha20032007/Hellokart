@@ -10,6 +10,9 @@ authRoutes.get("/test",requireSignIn,isAdmin,testController)
 authRoutes.get("/user-auth",requireSignIn,(req,res)=>{
     res.status(200).send({ok:true})
 })
+authRoutes.get("/admin-auth",requireSignIn,isAdmin,(req,res)=>{
+    res.status(200).send({ok:true})
+})
 module.exports={
     authRoutes
 }
