@@ -8,8 +8,8 @@ import Layout from '../../componets/Layout';
 import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
-    const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
+    const [email,setEmail]=useState("user@gmail.com")
+    const [password,setPassword]=useState("user@123")
     const [auth,setAuth]=useAuth()
     const location=useLocation()
 const navigate=useNavigate()
@@ -26,7 +26,13 @@ const navigate=useNavigate()
          localStorage.setItem("auth",JSON.stringify(res.data))
          //console.log(location)
          setTimeout(()=>{
-          navigate(location.state||"/")
+        // console.log(res.data.user.role)
+          if(res?.data?.user?.role>0){
+            navigate("/admin-dashboard")
+          }else{
+            navigate(location.state||"/user-dashboard")
+          }
+        
          },1000)
 
           }else if(res&&!res.data.success){
