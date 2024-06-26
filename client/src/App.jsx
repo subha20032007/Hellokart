@@ -22,7 +22,7 @@ function App() {
  return (
     <>
     <Routes>
-    {/* user */}
+    {/* user routes*/}
       <Route path="/" element={<Home/>} />
       <Route path="/user/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
       <Route path="user/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
