@@ -13,19 +13,25 @@ import PrivateRoute from './componets/PrivateRoute'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import Dashboard from './pages/user/Dashboard'
 import AdminRoute from './componets/AdminRoute'
+import CreateCategory from './pages/admin/CreateCategory'
+import CreateProduct from './pages/admin/CreateProduct'
+import Users from './pages/admin/Users'
 
 
 function App() {
  return (
     <>
     <Routes>
-    
+    {/* user */}
       <Route path="/" element={<Home/>} />
-      <Route path="/user-dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
-      <Route path="/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
-  
-      <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard/></AdminRoute>} />
-
+      <Route path="/user/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+      <Route path="user/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
+  {/* admin */}
+      <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard/></AdminRoute>} />
+      <Route path="/admin/create-category" element={<AdminRoute><CreateCategory/></AdminRoute>} />
+      <Route path="/admin/create-product" element={<AdminRoute><CreateProduct/></AdminRoute>} />
+      <Route path="/admin/users" element={<AdminRoute><Users/></AdminRoute>} />
+  {/* acess all */}
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/forget-password" element={<ForgetPassword/>} />
