@@ -1,10 +1,11 @@
 import React from 'react'
-import { NavLink,Link } from 'react-router-dom'
+import { NavLink,Link, useLocation } from 'react-router-dom'
 import "../index.css"
 import { useAuth } from '../context/AuthContext'
 const Header = () => {
   const [auth,setAuth]=useAuth()
-
+  const location=useLocation()
+//console.log(location)
   const handelLogout=()=>{
     setAuth({...auth,user:null,token:""})
     localStorage.removeItem("auth")
@@ -26,16 +27,22 @@ const Header = () => {
       <li className="nav-item">
       <NavLink to="/"className="nav-link" >Home</NavLink>
       </li>
+
       {
         !auth?.user?(<><li className="nav-item">
         <NavLink to="/register" className="nav-link" >Register</NavLink>
        </li>
        <li className="nav-item">
         <NavLink   to="/login" className="nav-link" >Login</NavLink>
-       </li></>):(
+       </li></>):(<>{location.pathname==="/admin-dashboard"?
+        <li className="nav-item">
+        <NavLink   to="/user-dashboard" className="nav-link" >User</NavLink>
+       </li>: <div><li className="nav-item">
+        <NavLink   to="/admin-dashboard" className="nav-link" >Admin</NavLink>
+       </li></div>}
         <li className="nav-item">
         <NavLink  onClick={handelLogout} to="/login" className="nav-link" >Logout</NavLink>
-       </li>)
+       </li></>)
       }
         
         <li className="nav-item">
