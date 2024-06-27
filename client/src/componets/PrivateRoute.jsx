@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
 return auth.token!==""?<>{children}</>:<Navigate state={location.pathname} to="/login" />
 
     
-//123456S
+//123456
 }
 
 
