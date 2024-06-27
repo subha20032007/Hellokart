@@ -36,9 +36,9 @@ const Header = () => {
         <NavLink   to="/login" className="nav-link" >Login</NavLink>
        </li></>):(<>{location.pathname==="/admin-dashboard"?
         <li className="nav-item">
-        <NavLink   to="/user-dashboard" className="nav-link" >User</NavLink>
+        <NavLink   to="/user/dashboard" className="nav-link" >User</NavLink>
        </li>: <div><li className="nav-item">
-        <NavLink   to="/admin-dashboard" className="nav-link" >Admin</NavLink>
+        <NavLink   to="/admin/dashboard" className="nav-link" >Admin</NavLink>
        </li></div>}
         <li className="nav-item">
         <NavLink  onClick={handelLogout} to="/login" className="nav-link" >Logout</NavLink>
@@ -46,7 +46,7 @@ const Header = () => {
       }
         
         <li className="nav-item">
-         <NavLink  to="/cart" className="nav-link" >Cart (0)</NavLink>
+         <NavLink  to="/user/cart" className="nav-link" >Cart (0)</NavLink>
         </li>
       </ul>
 
