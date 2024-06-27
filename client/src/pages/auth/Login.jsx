@@ -28,9 +28,9 @@ const navigate=useNavigate()
          setTimeout(()=>{
         // console.log(res.data.user.role)
           if(res?.data?.user?.role>0){
-            navigate("/admin-dashboard")
+            navigate("/admin/dashboard")
           }else{
-            navigate(location.state||"/user-dashboard")
+            navigate(location.state||"/user/dashboard")
           }
         
          },1000)
