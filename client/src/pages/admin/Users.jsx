@@ -1,8 +1,11 @@
 import React from 'react'
-
+import AdminMenu from '../../componets/AdminMenu'
+import Layout from '../../componets/Layout'
 const Users = () => {
   return (
-    <div>All Users</div>
+    <Layout>
+    <AdminMenu/>
+  </Layout>
   )
 }
 

@@ -34,9 +34,10 @@ const Header = () => {
        </li>
        <li className="nav-item">
         <NavLink   to="/login" className="nav-link" >Login</NavLink>
-       </li></>):(<>{location.pathname==="/admin-dashboard"?
+       </li></>):(<>{location.pathname==="/admin/dashboard"?
         <li className="nav-item">
-        <NavLink   to="/user/dashboard" className="nav-link" >User</NavLink>
+        <NavLink   to="/user/dashboard" className="nav-link" >
+        </NavLink>
        </li>: <div><li className="nav-item">
         <NavLink   to="/admin/dashboard" className="nav-link" >Admin</NavLink>
        </li></div>}
