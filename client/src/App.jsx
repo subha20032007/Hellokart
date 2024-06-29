@@ -26,12 +26,12 @@ function App() {
     <Routes>
     {/* user routes*/}
       <Route path="/" element={<Home/>} />
-      <Route path="/user/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+      <Route path="/dashboard/user" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
       <Route path="user/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
       <Route path="user/orders" element={<PrivateRoute><Orders/></PrivateRoute>} />
       <Route path="user/profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
   {/* admin routes */}
-      <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard/></AdminRoute>} />
+      <Route path="/dashboard/admin" element={<AdminRoute><AdminDashboard/></AdminRoute>} />
       <Route path="/admin/create-category" element={<AdminRoute><CreateCategory/> </AdminRoute>} />
       <Route path="/admin/create-products" element={<AdminRoute><CreateProduct/></AdminRoute>} />
       <Route path="/admin/users" element={<AdminRoute><Users/></AdminRoute>} />

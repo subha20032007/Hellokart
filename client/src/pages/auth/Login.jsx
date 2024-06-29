@@ -6,7 +6,7 @@ import '../../index.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../../componets/Layout';
 import { useAuth } from '../../context/AuthContext';
-import Dropdown from '../admin/Dropdown';
+
 
 const Login = () => {
     const [email,setEmail]=useState("user@gmail.com")
@@ -30,10 +30,10 @@ const navigate=useNavigate()
         // console.log(res.data.user.role)
           if(res?.data?.user?.role>0){
            // console.log("nav1")
-            navigate("/admin/dashboard")
+            navigate("/dashboard/admin")
           }else{
            // console.log("nav0")
-            navigate(location.state||"/user/dashboard")
+            navigate(location.state||"/dashboard/user")
           }
         
          },1000)
@@ -55,7 +55,7 @@ const navigate=useNavigate()
             <button onClick={handelSubmit}>Submit</button>
             <p style={{color:"teal",fontWeight:"30px"}} onClick={()=>{navigate("/forget-password")}}>Forget password?</p>
         </div>
-        <Dropdown/>
+        
     </Layout>
   )
 }
