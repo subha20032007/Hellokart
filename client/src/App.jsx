@@ -27,14 +27,14 @@ function App() {
     {/* user routes*/}
       <Route path="/" element={<Home/>} />
       <Route path="/dashboard/user" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
-      <Route path="user/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
-      <Route path="user/orders" element={<PrivateRoute><Orders/></PrivateRoute>} />
-      <Route path="user/profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
+      <Route path="/user/cart" element={<PrivateRoute><Cart/></PrivateRoute>} />
+      <Route path="/user/orders" element={<PrivateRoute><Orders/></PrivateRoute>} />
+      <Route path="/user/profile" element={<PrivateRoute><Profile/></PrivateRoute>} />
   {/* admin routes */}
       <Route path="/dashboard/admin" element={<AdminRoute><AdminDashboard/></AdminRoute>} />
-      <Route path="/admin/create-category" element={<AdminRoute><CreateCategory/> </AdminRoute>} />
-      <Route path="/admin/create-products" element={<AdminRoute><CreateProduct/></AdminRoute>} />
-      <Route path="/admin/users" element={<AdminRoute><Users/></AdminRoute>} />
+      <Route path="/dashboard/admin/create-category" element={<AdminRoute><CreateCategory/> </AdminRoute>} />
+      <Route path="/dashboard/admin/create-product" element={<AdminRoute><CreateProduct/></AdminRoute>} />
+      <Route path="/dashboard/admin/users" element={<AdminRoute><Users/></AdminRoute>} />
   {/* acess all */}
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
