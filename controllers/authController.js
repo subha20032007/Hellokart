@@ -78,7 +78,7 @@ if(!match){
     })
 }
 console.log(process.env.JWT_SECRET)
-const token=await jwt.sign({_id:user.id},process.env.JWT_SECRET,{
+const token= await jwt.sign({_id:user.id},process.env.JWT_SECRET,{
     expiresIn:"7d"
 })
 

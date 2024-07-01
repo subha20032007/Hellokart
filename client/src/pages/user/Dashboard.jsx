@@ -3,7 +3,7 @@ import Layout from '../../componets/Layout'
 
 const Dashboard = () => {
   return (
-    <Layout>Dashboard</Layout>
+    <Layout>User Dashboard</Layout>
   )
 }
 

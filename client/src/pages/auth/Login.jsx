@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../../componets/Layout';
 import { useAuth } from '../../context/AuthContext';
 
+
 const Login = () => {
     const [email,setEmail]=useState("user@gmail.com")
     const [password,setPassword]=useState("user@123")
@@ -16,10 +17,10 @@ const navigate=useNavigate()
 //console.log(import.meta.env.REACT_APP_API)
     const handelSubmit=async(e)=>{
         e.preventDefault()
-        console.log(password)
+      //  console.log(password)
         try{
           const res =await axios.post(`${import.meta.env.REACT_APP_API}/api/v1/auth/login`,{email,password})
-          console.log(res)
+       //   console.log(res)
           if(res&&res.data.success){
             toast.success(res.data.message)
             setAuth({...auth,user:res.data.user,token:res.data.token})
@@ -28,9 +29,11 @@ const navigate=useNavigate()
          setTimeout(()=>{
         // console.log(res.data.user.role)
           if(res?.data?.user?.role>0){
-            navigate("/admin/dashboard")
+           // console.log("nav1")
+            navigate("/dashboard/admin")
           }else{
-            navigate(location.state||"/user/dashboard")
+           // console.log("nav0")
+            navigate(location.state||"/dashboard/user")
           }
         
          },1000)
@@ -52,6 +55,7 @@ const navigate=useNavigate()
             <button onClick={handelSubmit}>Submit</button>
             <p style={{color:"teal",fontWeight:"30px"}} onClick={()=>{navigate("/forget-password")}}>Forget password?</p>
         </div>
+        
     </Layout>
   )
 }
